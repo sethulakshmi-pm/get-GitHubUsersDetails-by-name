@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router';
+import React from 'react';
 
 class GithubUser extends React.Component {
 
@@ -15,10 +15,11 @@ class GithubUser extends React.Component {
         to={url}
       >
         <img
+          alt={'github-user-avatar'}
           className="github-usertag__avatar"
           src={avatarUrl}
         />
-          {username}
+        {username}
       </Link>
     );
   }

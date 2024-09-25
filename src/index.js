@@ -1,21 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { browserHistory, IndexRoute, Route, Router } from 'react-router';
+import './index.css';
+
+import { IndexRoute, Route, Router, browserHistory } from 'react-router';
 
 import App from './components/App';
 import Followers from './components/Followers';
+import Following from './components/Following';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Repo from './components/Repo';
 import Search from './components/Search';
 import User from './components/User';
-import './index.css';
 
-/*
- Rendering a router will output the right component tree based on the current URL.
- Nested routes' components will be passed down to the parent as `this.props.children`
-
- If the URL is /, then <App/> will be rendered, and this.props.children will be <Search/> (this is the IndexRoute)
- If the URL is /user/ziad-saab then <App/> will be rendered, and this.props.children will be <User/>
- The <User/> instance will be passed a prop called `params`. It will be an object with `{username: 'ziad-saab'}`
- */
 const routes = (
   <Router
     history={browserHistory}
@@ -29,6 +24,14 @@ const routes = (
         <Route
           path="followers"
           component={Followers}
+        />
+        <Route
+          path="following"
+          component={Following}
+        />
+        <Route
+          path="repo"
+          component={Repo}
         />
       </Route>
     </Route>

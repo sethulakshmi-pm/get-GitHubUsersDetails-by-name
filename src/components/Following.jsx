@@ -1,38 +1,38 @@
 import GithubUser from './GithubUser';
 import React from 'react';
 
-class Followers extends React.Component {
+class Following extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   componentDidMount() {
-    fetch(`https://api.github.com/users/${this.props.params.username}/followers`)
+    fetch(`https://api.github.com/users/${this.props.params.username}/following`)
       .then(response => response.json())
       .then(
         user => {
-          console.log("WWWWW", user)
+          console.log("following", user)
           this.setState({
-            followers: user,
+            following: user,
           });
         },
       );
   }
 
   render() {
-    console.log("wwwwwww", this.state.followers)
+    console.log("wwwwwww", this.state.following)
 
-    if (!this.state.followers) {
-      return <div>LOADING FOLLOWERS...</div>
+    if (!this.state.following) {
+      return <div>LOADING FOLLOWING...</div>
     }
 
     return (
       <div>
-        Followers of - {this.props.params.username}
+        Following of - {this.props.params.username}
 
         <div>
-          {this.state.followers.map((user, index) => {
+          {this.state.following.map((user, index) => {
             return <div
               key={index}
             >
@@ -47,4 +47,4 @@ class Followers extends React.Component {
   }
 };
 
-export default Followers;
+export default Following;
