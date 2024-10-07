@@ -1739,6 +1739,7 @@
 
     var performanceMetrics = sessionStorage.getItem('performanceMetrics') || '[]';
     var performanceMetricsList = JSON.parse(performanceMetrics);
+    console.log('WWWWWW', performanceMetricsList);
     performanceMetricsList === null || performanceMetricsList === void 0 || performanceMetricsList.forEach(function (element) {
       return addInternalMetaDataToBeacon(beacon, element);
     });
