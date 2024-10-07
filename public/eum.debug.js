@@ -952,7 +952,6 @@
   }
   function processPerformanceMetrics(beacon) {
     var performanceMetrics = sessionStorage.getItem('performanceMetrics') || '[]';
-    console.log('sss', performanceMetrics);
     var performanceMetricsList = JSON.parse(performanceMetrics);
     var combinedMetrics = performanceMetricsList.reduce(function (acc, element) {
       Object.entries(element).forEach(function (_ref) {
@@ -964,7 +963,6 @@
       });
       return acc;
     }, {});
-    console.log('combinedMetrics', combinedMetrics);
     var metricsToSend = {
       performanceMetrics: JSON.stringify(combinedMetrics) // Stringify combined metrics directly
 
